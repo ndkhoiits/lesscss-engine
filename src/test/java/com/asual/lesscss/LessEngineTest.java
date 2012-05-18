@@ -173,4 +173,12 @@ public class LessEngineTest {
 		return getClass().getClassLoader().getResource("META-INF/" + path);
 	}
 
+   @Test
+   public void testURL() throws LessException
+   {
+      String expected = ".profile {\n  float: left;\n  background-image: url('inc/background/image.png');\n}\n";
+      String result = engine.compile(getResource("less/urltest/main.less"));
+      assertEquals(expected, result);
+   }
+
 }
